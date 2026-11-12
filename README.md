@@ -12,6 +12,10 @@ uv sync
 
 This creates the in-project `.venv` environment and installs the exam dependencies. In VS Code, open a notebook, choose **Select Kernel**, and select the Python environment at `.venv`.
 
+The dependencies include Captum for Problem 19's integrated gradients and
+`onnx` and `onnxscript` for PyTorch's ONNX export. Run `uv sync` after pulling
+exam updates, and restart an already running notebook kernel.
+
 The repository is installed into `.venv` in editable mode, so modules in `exam/` can be imported from notebooks no matter which folder Jupyter uses as its working directory. For example, add `exam/math.py` and import it via
 
 ```python
@@ -28,7 +32,7 @@ Run a Python file with the same environment using `uv run python exam/example.py
 
 To add a dependency, for example `pandas`, run `uv add pandas`. This updates `pyproject.toml` and `uv.lock`. Run `uv sync` after pulling changes to install the locked dependencies.
 
-## Notebook development checks
+## Ruff and MyPy
 
 `uv sync` also installs the development tools: Ruff, mypy, and
 [nbQA](https://nbqa.readthedocs.io/en/latest/readme.html), which runs mypy on
@@ -42,8 +46,7 @@ uv run nbqa mypy exam/problems_11-17.ipynb
 
 The notebook keeps its answer choices commented out. Narrow inline exceptions
 cover imports used only in those choices and names students define by selecting
-an answer. The checks validate the active code; they do not grade the choices or
-execute the notebook.
+an answer. Ruff and MyPy are not part of grading.
 
 ## License
 
