@@ -28,6 +28,23 @@ Run a Python file with the same environment using `uv run python exam/example.py
 
 To add a dependency, for example `pandas`, run `uv add pandas`. This updates `pyproject.toml` and `uv.lock`. Run `uv sync` after pulling changes to install the locked dependencies.
 
+## Notebook development checks
+
+`uv sync` also installs the development tools: Ruff, mypy, and
+[nbQA](https://nbqa.readthedocs.io/en/latest/readme.html), which runs mypy on
+notebook code cells. Run these checks from the repository root:
+
+```sh
+uv run ruff check exam/problems_11-17.ipynb
+uv run ruff format --check exam/problems_11-17.ipynb
+uv run nbqa mypy exam/problems_11-17.ipynb
+```
+
+The notebook keeps its answer choices commented out. Narrow inline exceptions
+cover imports used only in those choices and names students define by selecting
+an answer. The checks validate the active code; they do not grade the choices or
+execute the notebook.
+
 ## License
 
 This repository is provided with an MIT license. See the `LICENSE` file.
