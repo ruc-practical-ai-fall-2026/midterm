@@ -4,9 +4,29 @@ This midterm follows the same format as prior assignments and quizzes from the s
 
 ## Installation
 
-Run `uv sync`, then select the project's `.venv` Python environment as the notebook kernel.
+Install [uv](https://docs.astral.sh/uv/getting-started/installation/) if it is not already available, then run `uv sync` from the repository root.
 
-To add a dependency, for example `pandas`, run `uv add pandas`.
+```sh
+uv sync
+```
+
+This creates the in-project `.venv` environment and installs the exam dependencies. In VS Code, open a notebook, choose **Select Kernel**, and select the Python environment at `.venv`.
+
+The repository is installed into `.venv` in editable mode, so modules in `exam/` can be imported from notebooks no matter which folder Jupyter uses as its working directory. For example, add `exam/math.py` and import it via
+
+```python
+from exam import math
+```
+
+or
+
+```python
+from exam.math import some_function
+```
+
+Run a Python file with the same environment using `uv run python exam/example.py`.
+
+To add a dependency, for example `pandas`, run `uv add pandas`. This updates `pyproject.toml` and `uv.lock`. Run `uv sync` after pulling changes to install the locked dependencies.
 
 ## License
 
