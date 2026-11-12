@@ -1,4 +1,4 @@
-# Midterm Exam - Section 1: Ethics and Best Practices
+# Midterm Exam - Section 1: Ethics and Best Practices (3 points each)
 
 Edit this file to take the first part of the midterm. Type your letter choice where indicated and type answers in full sentences where directed to explain your choice. Beware of confidently wrong answers and beware of correct best practices applied incorrectly!
 
